@@ -6,7 +6,8 @@ public class Main {
         CartesianPoint a = new CartesianPoint(5,9);
         CartesianPoint b = new CartesianPoint(12,10);
 
-        Distance distance = new Distance(a,b);
-        System.out.println(distance.getDistance());
+        CartesianPlane plane = new CartesianPlane(a,b);
+        System.out.println(plane.getDistance());
+        
     }
 }

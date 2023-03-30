@@ -1,10 +1,10 @@
 package homework1;
 
-public class Distance {
+public class CartesianPlane {
   private CartesianPoint a;
   private CartesianPoint b;
   
-  public Distance(CartesianPoint a, CartesianPoint b) {
+  public CartesianPlane(CartesianPoint a, CartesianPoint b) {
     this.a = a;
     this.b = b;
   } 
