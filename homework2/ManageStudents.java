@@ -1,12 +1,11 @@
 package homework2;
-import java.util.ArrayList;
 
 public class ManageStudents{
-    private ArrayList<Student> students;
+    private Student[] students;
     private int totalStudents = 0;
 
-    public ManageStudents(){
-        this.students = new ArrayList<Student>();
+    public ManageStudents(int col){
+        this.students = new Student[col];
     }
 
     /* return the size of students array */
@@ -16,8 +15,8 @@ public class ManageStudents{
 
     /* Verify if exists a student in students array and return true if exists */
     public boolean haveStudent(Student student){
-        for(int count = 0; count < this.students.size();count++){
-            if(this.students.get(count).getName().equals(student.getName())){
+        for(int count = 0; count < this.totalStudents;count++){
+            if(this.students[count].getName().equals(student.getName())){
                 return true;
             }
         }
@@ -26,7 +25,7 @@ public class ManageStudents{
 
     /* add a new student in students array */
     public void addStudent(Student student){
-        this.students.add(student);
+        this.students[totalStudents] = student;
         this.totalStudents++;
     }
 }
