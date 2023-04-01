@@ -8,7 +8,7 @@ public class ManageStudents{
         this.students = new Student[col];
     }
 
-    /* return the size of students array */
+    /* return the size of students array. the real size*/
     public int sizeList(){
         return this.totalStudents;
     }
@@ -25,6 +25,9 @@ public class ManageStudents{
 
     /* add a new student in students array */
     public void addStudent(Student student){
+        if(totalStudents == this.students.length){
+            return;
+        }
         this.students[totalStudents] = student;
         this.totalStudents++;
     }
