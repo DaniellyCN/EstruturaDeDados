@@ -1,6 +1,6 @@
 package homework3;
 
-public class ManageStudents{
+public class ManageStudents implements IManageStudents{
     private Student[] students;
     private int totalStudents = 0;
 
@@ -13,11 +13,15 @@ public class ManageStudents{
         return this.totalStudents;
     }
 
+  
+
     /* Verify if exists a student in students array and return true if exists */
-    public boolean have(Student student){
+    public boolean have(Object student){
         for(int count = 0; count < this.totalStudents;count++){
-            if(this.students[count].getName().equals(student.getName())){
-                return true;
+            if(student instanceof Student){
+                if(this.students[count].getName().equals(((Student)student).getName())){
+                    return true;
+                }
             }
         }
         return false;
@@ -31,9 +35,9 @@ public class ManageStudents{
     }
 
     /* add a new student in students array */
-    public void add(Student student){
+    public void add(Object student){
         this.secureSpace();
-        this.students[totalStudents] = student;
+        this.students[totalStudents] = (Student) student;
         this.totalStudents++;
     }
 
@@ -46,10 +50,10 @@ public class ManageStudents{
         }
     }
 
-    public boolean remove(Student student){
+    public boolean remove(Object student){
         int count = -1;
         for(int i = 0; i < totalStudents; i++) 
-            if (student.getName() == students[i].getName()){
+            if (((Student)student).getName().equals(students[i].getName())){
                 count = i; break;
             }
         if (count != -1){ //found out element
