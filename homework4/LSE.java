@@ -37,9 +37,34 @@ public class LSE implements ILista {
         }
         return false;
     }
-
+// ver método
     public boolean remove(Object content){
+        Noh aux = first;
+        Noh previous = new Noh(content);
+
+        while(aux != null && aux.getContent() != content){
+            previous = aux;
+            aux = aux.getNext();
+        }
+        if(aux == null){
+            return false;
+        }else{
+            previous.setNext(aux);
+            return true;
+        }
         
+    }
+    public int size(){
+        int cont = 0;
+        Noh aux = first;
+        if(first==null){
+            return 0;
+        }
+        while(aux!=null){
+            aux = aux.getNext();
+            cont+=1;
+        }
+        return cont;
     }
 
 }
