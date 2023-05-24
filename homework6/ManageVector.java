@@ -39,18 +39,21 @@ public class ManageVector {
     }
 
     public int findMaxRecursive(int[] numbers) {
+        long startTime = System.nanoTime(); // Registro do tempo de início
         if (numbers.length == 0) {
             return Integer.MIN_VALUE;
         }
-        long start = System.currentTimeMillis();
         int max = findMaxRecursiveHelper(numbers, 0, numbers.length - 1);
-        long end = System.currentTimeMillis();
-        currentTime = end - start;
+        long endTime = System.nanoTime(); // Registro do tempo de fim
+        currentTime = endTime - startTime; // Cálculo da diferença de tempo
         return max;
     }
 
     private int findMaxRecursiveHelper(int[] numbers, int begin, int last) {
+        long startTime = System.nanoTime(); // Registro do tempo de início
         if (begin == last) {
+            long endTime = System.nanoTime(); // Registro do tempo de fim
+            currentTime = endTime - startTime; // Cálculo da diferença de tempo
             return numbers[begin];
         } else {
             int middle = (begin + last) / 2;
@@ -58,8 +61,12 @@ public class ManageVector {
             int max_2 = findMaxRecursiveHelper(numbers, middle + 1, last);
 
             if (max_1 > max_2) {
+                long endTime = System.nanoTime(); // Registro do tempo de fim
+                currentTime = endTime - startTime; // Cálculo da diferença de tempo
                 return max_1;
             }
+            long endTime = System.nanoTime(); // Registro do tempo de fim
+            currentTime = endTime - startTime; // Cálculo da diferença de tempo
             return max_2;
         }
     }

@@ -3,7 +3,7 @@ package homework3;
 public class Main {
     public static void main(String[] args){
 
-        /* POR QUE DA FORMA RETORNA ERRO SLIDE 10?
+        /*
         IManageStudents test1 = new ManageStudents(2);
         IManageStudents test2 = new NotOptimized(2);
         */
